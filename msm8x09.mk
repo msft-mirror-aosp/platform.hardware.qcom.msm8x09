@@ -11,8 +11,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-ifeq ($(TARGET_USES_318),true)
-    PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8x09/k318/kernel-headers
-else
-    PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8x09/kernel-headers
-endif
+
+PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8x09/kernel-headers
