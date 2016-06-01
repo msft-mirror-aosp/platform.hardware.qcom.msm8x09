@@ -27,28 +27,28 @@ struct snd_compressed_buffer {
   __u32 fragment_size;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 fragments;
-};
+} __attribute__((packed, aligned(4)));
 struct snd_compr_params {
   struct snd_compressed_buffer buffer;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   struct snd_codec codec;
   __u8 no_wake_mode;
-};
+} __attribute__((packed, aligned(4)));
 struct snd_compr_tstamp {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 byte_offset;
-  __u32 copied_total;
+  __u64 copied_total;
   __u32 pcm_frames;
   __u32 pcm_io_frames;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 sampling_rate;
   uint64_t timestamp;
-};
+} __attribute__((packed, aligned(4)));
 struct snd_compr_avail {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u64 avail;
   struct snd_compr_tstamp tstamp;
-} __attribute__((packed));
+} __attribute__((packed, aligned(4)));
 enum snd_compr_direction {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   SND_COMPRESS_PLAYBACK = 0,
@@ -66,18 +66,18 @@ struct snd_compr_caps {
   __u32 codecs[MAX_NUM_CODECS];
   __u32 reserved[11];
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-};
+} __attribute__((packed, aligned(4)));
 struct snd_compr_codec_caps {
   __u32 codec;
   __u32 num_descriptors;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   struct snd_codec_desc descriptor[MAX_NUM_CODEC_DESCRIPTORS];
-};
+} __attribute__((packed, aligned(4)));
 struct snd_compr_audio_info {
   uint32_t frame_size;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   uint32_t reserved[15];
-};
+} __attribute__((packed, aligned(4)));
 enum {
   SNDRV_COMPRESS_ENCODER_PADDING = 1,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -89,7 +89,7 @@ enum {
 struct snd_compr_metadata {
   __u32 key;
   __u32 value[8];
-};
+} __attribute__((packed, aligned(4)));
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define SNDRV_COMPRESS_IOCTL_VERSION _IOR('C', 0x00, int)
 #define SNDRV_COMPRESS_GET_CAPS _IOWR('C', 0x10, struct snd_compr_caps)
@@ -111,10 +111,11 @@ struct snd_compr_metadata {
 #define SNDRV_COMPRESS_NEXT_TRACK _IO('C', 0x35)
 #define SNDRV_COMPRESS_PARTIAL_DRAIN _IO('C', 0x36)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define SNDRV_COMPRESS_SET_NEXT_TRACK_PARAM _IOW('C', 0x37, union snd_codec_options)
+#define SNDRV_COMPRESS_SET_NEXT_TRACK_PARAM _IOW('C', 0x80, union snd_codec_options)
 #define SND_COMPR_TRIGGER_DRAIN 7
 #define SND_COMPR_TRIGGER_NEXT_TRACK 8
 #define SND_COMPR_TRIGGER_PARTIAL_DRAIN 9
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define SNDRV_COMPRESS_METADATA_MODE _IOW('C', 0x99, bool)
 #endif
+
