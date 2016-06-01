@@ -16,8 +16,8 @@
  ***
  ****************************************************************************
  ****************************************************************************/
-#ifndef _UAPI_ION_H
-#define _UAPI_ION_H
+#ifndef _UAPI_LINUX_ION_H
+#define _UAPI_LINUX_ION_H
 #include <linux/ioctl.h>
 #include <linux/types.h>
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -38,7 +38,7 @@ enum ion_heap_type {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define ION_HEAP_CARVEOUT_MASK (1 << ION_HEAP_TYPE_CARVEOUT)
 #define ION_HEAP_TYPE_DMA_MASK (1 << ION_HEAP_TYPE_DMA)
-#define ION_NUM_HEAP_IDS sizeof(unsigned int) * 8
+#define ION_NUM_HEAP_IDS (sizeof(unsigned int) * 8)
 #define ION_FLAG_CACHED 1
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define ION_FLAG_CACHED_NEEDS_SYNC 2
@@ -76,3 +76,4 @@ struct ion_custom_data {
 #define ION_IOC_CUSTOM _IOWR(ION_IOC_MAGIC, 6, struct ion_custom_data)
 #endif
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+
