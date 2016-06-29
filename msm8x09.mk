@@ -13,3 +13,7 @@
 # limitations under the License.
 
 PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8x09/kernel-headers
+PRODUCT_PROPERTY_OVERRIDES += \
+  debug.composition.type=dyn \
+  debug.hwc.dynThreshold=4.5 \
+  debug.sf.hwc.canUseABC=1
